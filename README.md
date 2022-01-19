@@ -15,9 +15,9 @@ td = RIOSHealth::himport(today = FALSE)
 
 The default value for the export.zip file to read is customized to my way of reading the files.
 I have a script that moves the export.zip from the Downloads directory and rename it in the current
-working directory as export_%m-%d-%y.zip where %m, %d and %y are the month, day and year (as
-numbers.)
-If that doesn't exist, it looks for the most recent export.zip file in the ~/Downloads directory,
+working directory with the current date as part of the name, e.g., export_01-18-22.zip.
+(i.e. export_%m-%d-%y.zip where %m, %d and %y are the month, day and year (as numbers.))
+If that file doesn't exist, it looks for the most recent export.zip file in the ~/Downloads directory,
 accounting for download numbering, e.g., export-2.zip.
 
 You can specify the path to the file directly.
