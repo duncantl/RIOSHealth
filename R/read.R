@@ -29,9 +29,23 @@ function()
     f2
 }
 
+mostRecent
+function (pattern, dir = "~/Downloads") 
+{
+    info = file.info(list.files(dir, pattern = pattern, full.names = TRUE))
+    rownames(info)[which.max(info$ctime)]
+}
+
 todaysFile =
 function()
-      sprintf("export_%s.zip",  format(Sys.Date(), "%m_%d_%y"))    
+{
+    f = sprintf("export_%s.zip",  format(Sys.Date(), "%m_%d_%y"))
+    if(!file.exists(f))
+        return(mostRecent("export.*\\.zip"))
+
+    f
+}
+
 
 himport =
 function(f = todaysFile(), today = TRUE)
