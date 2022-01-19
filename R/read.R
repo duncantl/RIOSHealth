@@ -63,7 +63,8 @@ function(f = todaysFile(), today = TRUE)
 
 readToday =
     #
-    # Finish
+    # This takes some liberties to be a lot faster.
+    # It finds all the <Record  type="...WalkingRunning"> nodes each of which is assumed to be entirely on a single line
     #
 function(txt,lines = strsplit(txt, "\n")[[1]], date = format(Sys.Date(), "%Y-%m-%d"))
 {
