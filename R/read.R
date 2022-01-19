@@ -1,4 +1,6 @@
+# Leave so can source this directly.
 library(XML)
+library(Rcompression)
 
 read = 
 function(file)
@@ -16,13 +18,25 @@ function(file)
 }
 
 
-himport =
-function(ff = mostRecent("^export"), today = TRUE)
+copyMostRecent =
+function()    
 {
-    f2 = sprintf("export_%s.zip",  format(Sys.Date(), "%m_%d_%y"))
+    ff = mostRecent("^export")
+    f2 = todaysFile()
+    if(length(ff) == 0)
+        return(f2)
     file.copy(ff, f2)
-    library(Rcompression)
-    ar = zipArchive(f2)
+    f2
+}
+
+todaysFile =
+function()
+      sprintf("export_%s.zip",  format(Sys.Date(), "%m_%d_%y"))    
+
+himport =
+function(f = todaysFile(), today = TRUE)
+{
+    ar = zipArchive(f)
 
     tmp2 = (if(today) readToday else read)(ar[["apple_health_export/export.xml"]])
     
