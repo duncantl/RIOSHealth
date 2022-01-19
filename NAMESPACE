@@ -1,0 +1,6 @@
+import(XML)
+import(Rcompression)
+
+export(himport, walkDist)
+
+#read, readToday
