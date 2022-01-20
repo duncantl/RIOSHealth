@@ -37,9 +37,12 @@ function (pattern, dir = "~/Downloads")
 }
 
 todaysFile =
-function()
+function(find = FALSE)
 {
     f = sprintf("export_%s.zip",  format(Sys.Date(), "%m_%d_%y"))
+    if(!find)
+        return(f)
+    
     if(!file.exists(f))
         return(mostRecent("export.*\\.zip"))
 
