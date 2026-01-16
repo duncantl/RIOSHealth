@@ -2,5 +2,6 @@ import(XML)
 import(Rcompression)
 
 export(himport, walkDist)
+export(readDay, readToday)
 
 #read, readToday

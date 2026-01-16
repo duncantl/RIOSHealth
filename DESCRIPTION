@@ -2,7 +2,7 @@ Package: RIOSHealth
 Title: Read data from iPhone Health app
 Description: Reads the data from export.zip file,
   specifically the apple_health_export/export.xml file.
-Version: 0.1-0
+Version: 0.2-0
 Author: Duncan Temple Lang
 Maintainer: Duncan Temple Lang <duncan@r-project.org>
 License: BSD
